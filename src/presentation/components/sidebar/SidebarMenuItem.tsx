@@ -1,4 +1,3 @@
-import { menuRoutes } from "../../router/router";
 import { NavLink } from "react-router-dom";
 
 interface Props {
