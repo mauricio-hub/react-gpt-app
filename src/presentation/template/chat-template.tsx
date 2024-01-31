@@ -24,6 +24,7 @@ export const ChatTemplate = () => {
     <div className="chat-container">
       <div className="chat-messages">
         <div className="grid grid-cols-12 gap-y-2">
+                    {/* bienvenida */}
           <GptMessage text="Hola, puedes escribir tu texto en espñol y te ayudo con las correcciones" />
 
           {messages.map((message, index) =>
