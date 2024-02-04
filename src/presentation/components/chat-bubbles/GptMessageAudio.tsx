@@ -1,4 +1,4 @@
-
+import Markdown from 'react-markdown'
 
 
 interface Props {
@@ -15,7 +15,7 @@ export const GptMessageAudio = ({text,audio}:Props) => {
                 G
             </div>
             <div className="relative ml-3 text-sm bg-black bg-opacity-25 pt-3 pb-2 px-4 shadow rounded-x">
-                <p>{text}</p>
+            <Markdown>{text}</Markdown>
 
                 <audio
                     controls
