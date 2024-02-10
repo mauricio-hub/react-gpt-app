@@ -4,5 +4,6 @@ export * from './pro-cons-stream.use-cases';
 export * from './pro-cons-stream-generator.use-case';
 export * from './text-to-audio.use-case';
 export * from './audio-totext.use-case';
+export * from './image-generation.use-case';
 
 
