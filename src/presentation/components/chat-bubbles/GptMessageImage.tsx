@@ -3,9 +3,10 @@ interface Props {
   text: string;
   imageUrl: string;
   alt: string;
+  onImageSelect?: (imageUrl:string) => void;
 }
 
-export const GptMessageImage = ({ text, imageUrl, alt }: Props) => {
+export const GptMessageImage = ({imageUrl, alt,onImageSelect }: Props) => {
   return (
     <div className="col-start-1 col-end-8 p-3 rounded-lg">
       <div className="flex flex-row items-start">
@@ -16,7 +17,8 @@ export const GptMessageImage = ({ text, imageUrl, alt }: Props) => {
           <img
             src={imageUrl}
             alt={alt}
-            className="rounded-lg w-full h-64 object-cover object-center"
+            className="rounded-lg w-full h-auto object-cove"
+            onClick={() => onImageSelect && onImageSelect?.(imageUrl)}
           />
         </div>
       </div>
