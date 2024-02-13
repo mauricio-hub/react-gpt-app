@@ -66,7 +66,9 @@ export const ImageTunningPage = () => {
     setIsLoading(true);
     setMessages((prev) => [...prev, { text: text, isGpt: false }]);
 
-    const imageInfo = await imageGenerationUseCase(text);
+    const {originalImage,maskImage} = await originalImageAndMask
+
+    const imageInfo = await imageGenerationUseCase(text, originalImage, maskImage);
 
     setIsLoading(false);
 
@@ -96,7 +98,7 @@ export const ImageTunningPage = () => {
         <div className="fixd flex-col items-center top-10 right-10 z-10 fade-in">
           <span>Editando</span>
           <img
-            src={originalImageAndMask.originalImage}
+            src={originalImageAndMask.maskImage ?? originalImageAndMask.originalImage}
             alt="original"
             className="border rounded-xl w-36 h-36 object-contain"
           />
@@ -131,10 +133,10 @@ export const ImageTunningPage = () => {
                 text={message.text}
                 alt={message.info?.alt!}
                 imageUrl={message.info?.imageUrl!}
-                onImageSelect={(url) =>
+                onImageSelected={(maskImageUrl) =>
                   setOriginalImageAndMask({
-                    originalImage: url,
-                    maskImage: undefined,
+                    originalImage: message.info?.imageUrl!,
+                    maskImage: maskImageUrl,
                   })
                 }
                 />
