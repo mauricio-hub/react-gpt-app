@@ -1,4 +1,5 @@
 
-export interface TranslateResponse {
-    message: string;
+export interface QuestionResponse {
+    Role: string;
+    content: string;
 }
